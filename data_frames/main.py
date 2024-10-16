@@ -55,4 +55,37 @@ df_planilha_brasileirao = pd.read_excel('./planilhas/planilha_brasileirao_2024.x
 #preencher com ultimo valor:
 #df_planilha_brasileirao = df_planilha_brasileirao.ffill()
 
- 
+#calcular indicadores
+
+#value counts
+# posicao_jogadores = df_planilha_brasileirao['Posição'].value_counts()
+# print(posicao_jogadores)
+
+#groupby
+# gols_atacantes = df_planilha_brasileirao[['Posição', 'gols','assist']].groupby('Posição').sum()
+# print(gols_atacantes)
+
+#Mesclar 2 dataframes (procurar a informação de um dataframe em outro)
+#ex: gerentes_df = pd.read_excel('gerentes.xlsx')
+
+#ex: vendas_df = vendas_df.merge(gerentes_df) -- esse gerentes_df possui um id igual a tabela vendas_df e o pandas consegue assimilar que 
+# são a mesma tabela
+#fazendo com que não se replique a coluna id.
+
+# print(df_planilha_brasileirao['assist'].mean()) faz a média das assistencias
+
+# df_planilha_brasileirao = df_planilha_brasileirao.where(df_planilha_brasileirao['gols'] > df_planilha_brasileirao['gols'].mean(), 0)
+# print(df_planilha_brasileirao)
+#o where server para passa uma condição
+
+# print(df_planilha_brasileirao.where(df_planilha_brasileirao['gols'] > df_planilha_brasileirao['gols'].mean()) & (df_planilha_brasileirao['Posição'].isin(['atacante'])))
+# no código acima da pra comparar a média de gols e separar por posição mas está dando um erro pois não suporta float and bool
+
+# df_planilha_brasileirao = df_planilha_brasileirao.where(df_planilha_brasileirao['gols'] > df_planilha_brasileirao['gols'].mean()).dropna().reset_index(drop=True)
+#essa condição do where compara os gols com a media de gols, dropna retira as tabela com numero 0 qquqe foi colocado a cima, e resetou o index.
+
+
+
+
+
+
