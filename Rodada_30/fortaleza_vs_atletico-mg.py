@@ -30,4 +30,14 @@ print(mais_2_gols_fortaleza)
 # Quem tem mais de 2 gols por jogo no atlético-mg
 
 mais_2_gols_atletico = df_time_atletico[df_time_atletico.gols >= 2]
-print(mais_2_gols_atletico)
+# print(mais_2_gols_atletico)
+
+# Quem Tem mais de 2 gols são paulo ordenado por nome jogador, posição gols, assist, participação gol
+mais_2_gols_fortaleza = df_time_fortaleza[df_time_fortaleza.gols >= 2]
+mais_2_gols_fortaleza['participação gol'] = mais_2_gols_fortaleza['gols'] + mais_2_gols_fortaleza['assist']
+# print(mais_2_gols_fortaleza[['nome_jogadores','Posição', 'gols', 'assist','participação gol']])
+
+# Quem Tem mais de 2 gols vasco ordenado por nome jogador, posição gols, assist, participação gol
+mais_2_gols_atletico = df_time_atletico[df_time_atletico.gols >= 2]
+mais_2_gols_atletico['participação gol'] = mais_2_gols_atletico['gols'] + mais_2_gols_atletico['assist']
+# print(mais_2_gols_atletico[['nome_jogadores','Posição', 'gols', 'assist','participação gol']])
